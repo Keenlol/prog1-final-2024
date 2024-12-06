@@ -5,8 +5,8 @@ import random
 
 class BallSimulation:
     def __init__(self, num_ball, delay_in_seconds, dt:int=1):
-        self.delay_in_seconds = delay_in_seconds
-        self.dt = dt
+        self.__delay_in_seconds = delay_in_seconds
+        self.__dt = dt
         
         turtle.speed(0)
         turtle.tracer(0)
@@ -50,13 +50,13 @@ class BallSimulation:
             self.__draw_border()
             for ball in self.__ball_list:
                 ball.draw_ball()
-                ball.move_ball(self.dt)
+                ball.move_ball(self.__dt)
                 ball.update_ball_velocity()
             turtle.update()
 
             Seven_Seg.clear()
             Seven_Seg.draw(i%10)
-            Seven_Seg.my_delay(self.delay_in_seconds)
+            Seven_Seg.my_delay(self.__delay_in_seconds)
             
             turtle.update()
             
